@@ -1,0 +1,179 @@
+# PokeStore
+
+## Descripción
+
+PokeStore es una aplicación Ecommerce desarrollada con React, TypeScript y Firebase Firestore.
+
+La aplicación permite visualizar un catálogo de Pokémon, filtrar por categorías, acceder al detalle de cada producto, administrar un carrito de compras y generar órdenes de compra almacenadas en Firestore.
+
+---
+
+## Tecnologías Utilizadas
+
+* React
+* TypeScript
+* Vite
+* React Router DOM
+* Firebase Firestore
+* React Bootstrap
+* Bootstrap
+* React Icons
+* Context API
+
+---
+
+## Funcionalidades
+
+### Catálogo de Productos
+
+* Obtiene productos dinámicamente desde Firestore.
+* Visualización de Pokémon mediante cards.
+* Filtro por categorías:
+
+  * Fire
+  * Water
+  * Plant
+
+### Detalle de Producto
+
+* Vista individual de cada Pokémon.
+* Información completa:
+
+  * Imagen
+  * Descripción
+  * Categoría
+  * Precio
+  * Stock
+
+### ItemCount
+
+* Selección de cantidad mediante botones:
+
+  * +
+  * *
+* Validación de stock disponible.
+* No permite cantidades menores a 1.
+
+### Carrito de Compras
+
+* Agregar productos al carrito.
+* Modificar cantidades.
+* Eliminar productos.
+* Vaciar carrito completo.
+* Visualización de:
+
+  * Cantidades
+  * Subtotales
+  * Total general
+
+### Checkout
+
+* Formulario de compra con:
+
+  * Nombre
+  * Apellido
+  * Email
+  * Dirección
+  * Teléfono
+
+### Firestore
+
+Colecciones utilizadas:
+
+#### pokemons
+
+```json
+{
+  "category": "fire",
+  "description": "charizardfire",
+  "image": "https://...",
+  "price": 10,
+  "quantity": 10
+}
+```
+
+#### orders
+
+```json
+{
+  "buyer": {
+    "name": "Tristan",
+    "lastname": "Lenzberg",
+    "email": "correo@email.com",
+    "address": "Buenos Aires",
+    "phone": "123456789"
+  },
+  "items": [],
+  "total": 100,
+  "date": "timestamp"
+}
+```
+
+---
+
+## Navegación
+
+Rutas disponibles:
+
+| Ruta                | Descripción |
+| ------------------- | ----------- |
+| /                   | Catálogo    |
+| /category/:category | Categorías  |
+| /product/:id        | Detalle     |
+| /cart               | Carrito     |
+| /checkout           | Checkout    |
+
+---
+
+## Instalación
+
+Clonar repositorio:
+
+```bash
+git clone https://github.com/tuusuario/pokestore.git
+```
+
+Instalar dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar proyecto:
+
+```bash
+npm run dev
+```
+
+---
+
+## Variables Firebase
+
+Crear archivo de configuración Firebase:
+
+```ts
+src/firebase/firebaseConfig.ts
+```
+
+Configurar:
+
+```ts
+const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+};
+```
+
+---
+
+## Autor
+
+Tristan Lenzberg
+
+Full Stack Developer
+
+React • TypeScript • ExpressJS • NestJS • MongoDB
