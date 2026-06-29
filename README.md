@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# PokeStore — E-commerce en TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda online temática de Pokémon desarrollada con React y TypeScript. Permite explorar un catálogo, filtrar productos, consultar detalles, administrar un carrito y registrar órdenes en Firebase Firestore.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Catálogo de productos desde Firestore.
+- Filtrado por categorías.
+- Vista de detalle y selección de cantidad.
+- Carrito global mediante React Context.
+- Cálculo de unidades y precio total.
+- Formulario de checkout.
+- Registro de órdenes y presentación del ID de compra.
+- Ruta de página no encontrada.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19 y TypeScript
+- Vite
+- React Router DOM
+- Firebase y Firestore
+- React Context
+- React Bootstrap, Bootstrap y React Icons
+- ESLint
 
-## Expanding the ESLint configuration
+## Organización
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/components/`: catálogo, detalle, carrito y checkout.
+- `src/context/CartContext.tsx`: estado y operaciones del carrito.
+- `src/firebase/firebaseConfig.tsx`: inicialización de Firebase.
+- `src/types/`: tipos de productos y elementos del carrito.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Ejecución
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Para usar una instancia propia, configurar Firebase en `src/firebase/firebaseConfig.tsx` y crear las colecciones esperadas por la aplicación.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Calidad
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run lint
+npm run preview
 ```
+
+> Proyecto educativo de e-commerce enfocado en React, tipado y persistencia cloud.
